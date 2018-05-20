@@ -1,11 +1,6 @@
-import urllib3
 import requests
 import json
 
-
-#######################
-### ACL ###############
-#######################
 def get_acl(host):
     url_acl = "https://{}/api/objects/extendedacls/INSIDE_IN/aces".format(host)
     acl = requests.get(url_acl,
@@ -37,5 +32,3 @@ def change_acl():
 
     for ace in acl_asa1.get("items"):
         post_acl(asa2, ace)
-
-change_acl()

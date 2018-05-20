@@ -1,16 +1,6 @@
-import urllib3
 import requests
 import json
 
-
-asa1 = "10.78.104.3"
-asa2 = "10.78.104.4"
-log_pwd = ('shaurov', 'shaurov')
-urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
-
-#######################
-### NETWORK OBJECTS ###
-#######################
 def get_networkobjects(host):
     url_networkobjects = "https://{}/api/objects/networkobjects".format(host)
     networkobjects = requests.get(url_networkobjects,

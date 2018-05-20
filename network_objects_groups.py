@@ -1,16 +1,6 @@
-import urllib3
 import requests
 import json
 
-
-asa1 = "10.78.104.3"
-asa2 = "10.78.104.4"
-log_pwd = ('shaurov', 'shaurov')
-urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
-
-##############################
-### NETWORK OBJECTS GROUPS ###
-##############################
 def get_networkobjectgroups(host):
     url_networkobjectgroups = "https://{}/api/objects/networkobjectgroups".format(host)
     networkobjectgroups = requests.get(url_networkobjectgroups,
@@ -59,5 +49,3 @@ def change_networkobjectgroups():
         if name not in networkobjectgroups_asa1_list:
             delete_networkobjectgroups(asa2, name)
             print("networkobjectgroups <<<{}>>> has been successfully deleted from the asa2".format(name))
-
-change_networkobjectgroups()
